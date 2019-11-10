@@ -5,7 +5,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 
-// http://localhost:8080/Restful_Jersey/rest
+// http://localhost:8080/Restful_Jersey/rest/hello/..
 @Path(value = "/hello")
 public class Merkez {
 	
@@ -20,4 +20,9 @@ public class Merkez {
 		return Response.status(200).entity("hello " + person).build();
 	}
 
+	@GET
+	@Path(value ="/grüsse/{person}")
+	public Response grüssen(@PathParam("person") String person) {
+		return Response.status(200).entity("Guten Tag " + person).build();
+	}
 }
